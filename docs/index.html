@@ -29,8 +29,7 @@
         ><a href="#simple">Simple API</a><a href="#advanced">Advanced API</a
         ><a href="#frontend">Connect your frontend</a
         ><a href="#workspace">Manage your workspace</a
-        ><a href="#troubleshooting">Troubleshooting</a
-        ><a href="#hosting">Host these docs</a>
+        ><a href="#troubleshooting">Troubleshooting</a>
         <div class="aside-note">
           berAPI documentation<span>berAPI / V1.0</span>
         </div>
@@ -361,52 +360,6 @@ console.log(data.users);</pre
               and rename that file. Restart to recreate the example workspace.
             </p>
           </details>
-        </section>
-        <section id="hosting">
-          <span class="step">DOCUMENTATION HOSTING</span>
-          <h2>Host the documentation on GitHub Pages</h2>
-          <p>
-            The included <code>.github/workflows/docs-pages.yml</code> workflow
-            publishes only the static files in <code>docs/</code>. The mock API
-            application, server code, and local workspace data are not part of
-            the deployment.
-          </p>
-          <ol>
-            <li>
-              Commit and push the repository, including the documentation and
-              workflow, to <code>main</code> on GitHub.
-            </li>
-            <li>
-              Open <strong>Settings → Pages → Build and deployment</strong> and
-              set <strong>Source</strong> to <strong>GitHub Actions</strong>.
-            </li>
-            <li>
-              Open
-              <strong
-                >Actions → Deploy documentation to GitHub Pages → Run
-                workflow</strong
-              >, select <code>main</code>, and run it.
-            </li>
-            <li>
-              Wait for a successful deployment, then open
-              <a href="https://suyogagitayana.github.io/berapi/"
-                >https://suyogagitayana.github.io/berapi/</a
-              >.
-            </li>
-          </ol>
-          <p>
-            Later pushes to <code>main</code> deploy automatically when files in
-            <code>docs/</code> or the workflow change. No build step or custom
-            secrets are required. If your default branch is not
-            <code>main</code>, update both the branch filter and job condition
-            in the workflow.
-          </p>
-          <div class="note">
-            GitHub Pages serves this guide. To use the mock API, each user
-            clones the repository and runs <code>npm start</code> locally. API
-            URLs beginning with <code>http://localhost:3000</code> connect to
-            that user’s local server, not GitHub Pages.
-          </div>
         </section>
         <footer>
           <a class="brand" href="#">b <strong>berAPI</strong></a
