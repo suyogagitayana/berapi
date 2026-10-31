@@ -1,4 +1,4 @@
-# Berapi
+# BerAPI
 
 A friendly local mock API workspace for frontend developers. Create endpoints, edit their responses, copy their URLs, and keep building.
 
