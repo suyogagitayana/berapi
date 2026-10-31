@@ -61,3 +61,7 @@ npm test
 ```
 
 Tests exercise real HTTP requests, CORS, persistence, advanced responses, invalid changes, and route matching using a temporary workspace.
+
+## License
+
+Licensed under the [MIT License](LICENSE), including its warranty and liability disclaimers.

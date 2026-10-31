@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "A friendly local mock API workspace",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
