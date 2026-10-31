@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Install berAPI and create your first local mock API in minutes."
+    />
+    <title>berAPI — Documentation</title>
+    <link rel="canonical" href="https://suyogagitayana.github.io/berapi/" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23303a4d%27/%3E%3Ctext x=%278%27 y=%2725%27 fill=%27white%27 font-size=%2727%27 font-family=%27Arial%27 font-weight=%27bold%27%3Eb%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <nav>
+      <a class="brand" href="#">b <strong>berAPI</strong> <span>docs</span></a
+      ><a href="#installation">Get started </a>
+    </nav>
+    <div class="layout">
+      <aside>
+        <span class="label">THE GUIDE</span
+        ><a href="#introduction">Introduction</a
+        ><a href="#installation">Installation</a
+        ><a href="#first-endpoint">Your first endpoint</a
+        ><a href="#simple">Simple API</a><a href="#advanced">Advanced API</a
+        ><a href="#frontend">Connect your frontend</a
+        ><a href="#workspace">Manage your workspace</a
+        ><a href="#troubleshooting">Troubleshooting</a
+        ><a href="#hosting">Host these docs</a>
+        <div class="aside-note">
+          berAPI documentation<span>berAPI / V1.0</span>
+        </div>
+      </aside>
+      <main>
+        <header id="introduction">
+          <div class="eyebrow">berAPI DOCUMENTATION</div>
+          <h1>Local mock APIs<br />for frontend development</h1>
+          <p>
+            Install berAPI, configure an endpoint, and use it in your frontend.
+            Everything runs on your machine.
+          </p>
+          <div class="intro-actions">
+            <a class="button" href="#installation">Installation</a>
+            <a
+              class="button repo-button"
+              href="https://github.com/suyogagitayana/berapi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >View on GitHub</a>
+          </div>
+          <div class="hero-code">
+            <div><span class="dot"></span> EXAMPLE ENDPOINT</div>
+            <code><span>GET</span> http://localhost:3000/api/users</code>
+            <pre>
+{
+  "users": [
+    { "id": 1, "name": "Alex Morgan" }
+  ],
+  "total": 1
+}</pre
+            >
+          </div>
+          <div class="features">
+            <span>Node.js 20+</span><span>No dependencies</span
+            ><span>Built-in CORS support</span>
+          </div>
+        </header>
+        <section id="installation">
+          <span class="step">01 / GET STARTED</span>
+          <h2>Installation</h2>
+          <p>
+            You’ll need <strong>Git</strong> and
+            <strong>Node.js 20 or newer</strong>. Clone the
+            <a
+              href="https://github.com/suyogagitayana/berapi"
+              target="_blank"
+              rel="noopener noreferrer"
+              >berAPI repository</a
+            >, open the project folder, and start the server:
+          </p>
+          <pre class="command">
+git clone https://github.com/suyogagitayana/berapi.git
+cd berapi
+npm start</pre
+          >
+          <p>
+            Open <a href="http://localhost:3000">http://localhost:3000</a>. Four
+            example endpoints are ready to explore. There are no packages to
+            install.
+          </p>
+          <div class="note">
+            The server binds to your machine’s loopback address. Keep the
+            terminal running while you use your APIs. Press
+            <code>Ctrl+C</code> to stop it.
+          </div>
+          <details>
+            <summary>Use a different port</summary>
+            <p>PowerShell:</p>
+            <pre>
+$env:PORT=4000
+npm start</pre
+            >
+            <p>macOS / Linux:</p>
+            <pre>PORT=4000 npm start</pre>
+            <p>Your workspace and endpoint URLs will use the new port.</p>
+          </details>
+        </section>
+        <section id="first-endpoint">
+          <span class="step">02 / MAKE SOMETHING RESPOND</span>
+          <h2>Create an endpoint</h2>
+          <ol>
+            <li>
+              Click <strong>New endpoint</strong> and give it a name in
+              Settings, such as “All users”.
+            </li>
+            <li>
+              Choose an HTTP method and path, for example
+              <code>GET /api/users</code>.
+            </li>
+            <li>
+              Open <strong>Response body</strong> and write the JSON your
+              frontend expects.
+            </li>
+            <li>
+              Click <strong>Save endpoint</strong>, then
+              <strong>Test request</strong> to see the actual response.
+            </li>
+            <li>
+              Click <strong>Copy URL</strong> and use it in your frontend.
+            </li>
+          </ol>
+          <p>
+            You can edit an example instead. Each method and path combination
+            must be unique. Query strings don’t change which endpoint matches.
+          </p>
+        </section>
+        <section id="simple">
+          <span class="step">03 / THE EVERYDAY STUFF</span>
+          <h2>Simple API</h2>
+          <p>
+            Simple API gives you the essentials: HTTP method, URL path, and
+            response body. JSON is validated when you save. Use
+            <strong>Format JSON</strong> to tidy it up.
+          </p>
+          <p>
+            Settings let you rename or disable an endpoint. A disabled endpoint
+            returns 404 until you turn it back on. New endpoints default to
+            status <code>200</code>, JSON, and no added delay.
+          </p>
+          <div class="note">
+            Switching modes preserves your settings. If you previously chose a
+            different status or format in Advanced API, those settings still
+            apply in Simple API.
+          </div>
+        </section>
+        <section id="advanced">
+          <span class="step">04 / A LITTLE MORE CONTROL</span>
+          <h2>Advanced API</h2>
+          <p>
+            Switch to <strong>Advanced API</strong> to control these response
+            settings:
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>What it does</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Status code</td>
+                <td>
+                  Choose 200–599. Try 201 for creation, 401 for signed-out
+                  screens, or 500 for error states. HTTP 204, 205, and 304 have
+                  no body.
+                </td>
+              </tr>
+              <tr>
+                <td>Response format</td>
+                <td>
+                  JSON, plain text, or HTML. This sets the default Content-Type.
+                  JSON requires valid JSON; text and HTML accept raw content.
+                </td>
+              </tr>
+              <tr>
+                <td>Response delay</td>
+                <td>Add 0–30,000 ms of latency to exercise loading states.</td>
+              </tr>
+              <tr>
+                <td>Headers</td>
+                <td>
+                  Set custom response headers using a JSON object with string
+                  values.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pre>
+{
+  "X-Total-Count": "42",
+  "Cache-Control": "no-store",
+  "Access-Control-Expose-Headers": "X-Total-Count"
+}</pre
+          >
+          <p>
+            berAPI manages CORS origin and transport headers. Use
+            <code>Access-Control-Expose-Headers</code> if your frontend needs to
+            read custom response headers.
+          </p>
+          <h3>Network throttling and error simulation</h3>
+          <p>
+            Open
+            <strong>Advanced API → Settings → Network &amp; errors</strong>.
+            Apply a preset, or adjust each setting:
+          </p>
+          <ul>
+            <li>
+              <strong>Slow connection:</strong> adds 2 seconds of delay plus a
+              random 0–1 second. Custom delay and random extra delay each
+              support up to 30,000 ms.
+            </li>
+            <li>
+              <strong>Unreliable:</strong> returns a simulated error on
+              approximately 30% of requests. Set Error frequency to 0% for
+              normal responses or 100% to always fail.
+            </li>
+            <li>
+              <strong>Error presets:</strong> quickly return 401, 404, 500, or
+              503. Choose any error code from 400–599 and edit the separate JSON
+              error body. Your regular response body stays intact.
+            </li>
+            <li>
+              <strong>Request rate limit:</strong> allows a fixed number of
+              requests per window, shared by all clients and parameter values
+              for this endpoint. The preset allows 5 requests per 60 seconds.
+              Extra requests return 429 immediately with a
+              <code>Retry-After</code> header readable by your frontend.
+            </li>
+          </ul>
+          <p>
+            The rate limit is disabled when Allowed requests is 0. Windows start
+            on the first request and reset when the interval expires. OPTIONS
+            preflight requests do not count. Accepted requests count even when
+            they return a simulated error. Limits reset on server restart, or
+            when the endpoint’s route, enabled state, or rate-limit settings
+            change.
+          </p>
+          <p>
+            Click <strong>Save endpoint</strong> before testing. Simulation
+            settings persist across restarts and still apply in Simple API.
+            Choose <strong>Normal response</strong> and save to clear delays,
+            error simulation, and rate limits. This preset preserves your
+            regular status, format, headers, and body.
+          </p>
+          <h3>Dynamic paths</h3>
+          <p>
+            A path such as <code>/api/users/:id</code> matches a single segment
+            like <code>/api/users/123</code>. Replace parameters in the copied
+            URL before using it. Every match returns the same saved response;
+            path values and request bodies are not interpolated. If paths
+            overlap, the first matching endpoint in workspace order wins.
+          </p>
+        </section>
+        <section id="frontend">
+          <span class="step">05 / CONNECT THE DOTS</span>
+          <h2>Connect your frontend</h2>
+          <p>Point your frontend at the URL you copied:</p>
+          <pre>
+const response = await fetch(
+  'http://localhost:3000/api/users'
+);
+
+if (!response.ok) {
+  throw new Error('Could not load users');
+}
+
+const data = await response.json();
+console.log(data.users);</pre
+          >
+          <p>
+            GET, POST, PUT, PATCH, and DELETE are supported. berAPI handles
+            OPTIONS preflight automatically and allows requests from other
+            origins. For POST, choose a POST endpoint and add
+            <code>method: 'POST'</code> to fetch.
+          </p>
+          <div class="note">
+            Responses are static mocks. POST, PATCH, PUT, and DELETE return what
+            you saved; they don’t mutate other endpoints. Cookie-based
+            credentialed CORS is not supported.
+          </div>
+          <p>
+            Open <strong>Request activity</strong> to see the last 100 mock
+            requests, their status, and server response duration. Logs refresh
+            every four seconds and reset when the server restarts.
+          </p>
+        </section>
+        <section id="workspace">
+          <span class="step">06 / KEEP IT ORGANIZED</span>
+          <h2>Workspace storage and backups</h2>
+          <p>
+            Endpoints are saved in <code>data/endpoints.json</code> and survive
+            restarts. This folder is ignored by Git. Click
+            <strong>Export</strong> to download your saved workspace as JSON, or
+            <strong>Import</strong> to replace the workspace with a previous
+            export. Export a backup before importing.
+          </p>
+          <p>
+            berAPI supports up to 500 endpoints and a 2 MB workspace upload.
+            Import validates the entire file before saving. Use the search box
+            to find an endpoint by name, method, or path.
+          </p>
+          <div class="shortcuts">
+            <span><kbd>/</kbd> Focus search</span
+            ><span><kbd>Ctrl / ⌘ + S</kbd> Save endpoint</span
+            ><span><kbd>Tab</kbd> Indent code</span>
+          </div>
+        </section>
+        <section id="troubleshooting">
+          <h2>Troubleshooting</h2>
+          <details>
+            <summary>The port is already in use</summary>
+            <p>
+              Stop the other process or choose a different PORT using the
+              commands under Installation.
+            </p>
+          </details>
+          <details>
+            <summary>My endpoint returns 404</summary>
+            <p>
+              Check the method and path, save your changes, and make sure the
+              endpoint is enabled. Paths are case sensitive. Replace dynamic
+              parameters with real values.
+            </p>
+          </details>
+          <details>
+            <summary>My frontend cannot connect</summary>
+            <p>
+              Keep berAPI running and use its printed URL, including the port.
+              Your browser must be on the same machine. Use HTTP for local
+              development; an HTTPS page may block HTTP requests.
+            </p>
+          </details>
+          <details>
+            <summary>My JSON will not save</summary>
+            <p>
+              Check for trailing commas, missing quotes, and comments. The
+              response must be valid JSON. Switch to text in Advanced Settings
+              for a non-JSON response.
+            </p>
+          </details>
+          <details>
+            <summary>The server fails to load saved data</summary>
+            <p>
+              Back up <code>data/endpoints.json</code> and check that it
+              contains a valid berAPI export. To start fresh, stop the server
+              and rename that file. Restart to recreate the example workspace.
+            </p>
+          </details>
+        </section>
+        <section id="hosting">
+          <span class="step">DOCUMENTATION HOSTING</span>
+          <h2>Host the documentation on GitHub Pages</h2>
+          <p>
+            The included <code>.github/workflows/docs-pages.yml</code> workflow
+            publishes only the static files in <code>docs/</code>. The mock API
+            application, server code, and local workspace data are not part of
+            the deployment.
+          </p>
+          <ol>
+            <li>
+              Commit and push the repository, including the documentation and
+              workflow, to <code>main</code> on GitHub.
+            </li>
+            <li>
+              Open <strong>Settings → Pages → Build and deployment</strong> and
+              set <strong>Source</strong> to <strong>GitHub Actions</strong>.
+            </li>
+            <li>
+              Open
+              <strong
+                >Actions → Deploy documentation to GitHub Pages → Run
+                workflow</strong
+              >, select <code>main</code>, and run it.
+            </li>
+            <li>
+              Wait for a successful deployment, then open
+              <a href="https://suyogagitayana.github.io/berapi/"
+                >https://suyogagitayana.github.io/berapi/</a
+              >.
+            </li>
+          </ol>
+          <p>
+            Later pushes to <code>main</code> deploy automatically when files in
+            <code>docs/</code> or the workflow change. No build step or custom
+            secrets are required. If your default branch is not
+            <code>main</code>, update both the branch filter and job condition
+            in the workflow.
+          </p>
+          <div class="note">
+            GitHub Pages serves this guide. To use the mock API, each user
+            clones the repository and runs <code>npm start</code> locally. API
+            URLs beginning with <code>http://localhost:3000</code> connect to
+            that user’s local server, not GitHub Pages.
+          </div>
+        </section>
+        <footer>
+          <a class="brand" href="#">b <strong>berAPI</strong></a
+          ><span>berAPI v1.0.0</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

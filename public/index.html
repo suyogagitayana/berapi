@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>berAPI — Local mock APIs</title>
+    <meta
+      name="description"
+      content="Create local mock APIs and keep your frontend moving."
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/assets/app.js"></script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23303a4d%27/%3E%3Ctext x=%278%27 y=%2725%27 fill=%27white%27 font-size=%2727%27 font-family=%27Arial%27 font-weight=%27bold%27%3Eb%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="berAPI home"
+        ><span class="brand-icon">b</span>berAPI</a
+      >
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="endpoints">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        >
+          <rect x="4" y="4" width="6" height="6" rx="1" />
+          <rect x="14" y="4" width="6" height="6" rx="1" />
+          <rect x="4" y="14" width="6" height="6" rx="1" />
+          <rect x="14" y="14" width="6" height="6" rx="1" />
+        </svg>
+        Endpoints <b id="nav-count">4</b>
+      </button>
+      <button class="nav-item" data-view="activity">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        Request activity
+      </button>
+      <div class="sidebar-bottom">
+        <a class="nav-item" href="/docs/" target="_blank"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M5 4h10l4 4v12H5zM14 4v5h5M8 12h8M8 16h6" />
+          </svg>
+          Documentation</a
+        >
+        <div class="local-card">
+          <span class="live-dot"></span><strong>Server running</strong
+          ><small id="server-origin"></small>
+        </div>
+        <div class="version">berAPI <span>v1.0.0</span></div>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <div>
+          Local workspace <span>/</span>
+          <strong id="breadcrumb">Endpoints</strong>
+        </div>
+        <span class="topbar-note">localhost</span>
+      </header>
+      <section class="page-heading">
+        <div>
+          <h1 id="page-title">Endpoints</h1>
+          <p id="page-description">
+            Manage the mock responses your frontend needs.
+          </p>
+        </div>
+        <button class="button primary" id="new-endpoint">
+          <span>+</span> New endpoint
+        </button>
+      </section>
+      <div class="workspace-toolbar">
+        <div>
+          <strong id="endpoint-count">4 endpoints</strong
+          ><span class="divider">/</span
+          ><span id="enabled-count">4 active</span>
+        </div>
+        <div class="toolbar-actions">
+          <button class="text-button" id="export-workspace">↓ Export</button
+          ><label class="text-button import-label"
+            >↑ Import<input
+              type="file"
+              id="import-workspace"
+              accept="application/json,.json"
+              hidden
+          /></label>
+        </div>
+      </div>
+      <section class="workbench" id="endpoint-view">
+        <div class="endpoint-panel">
+          <div class="search-box">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <circle cx="10" cy="10" r="6" />
+              <path d="m15 15 5 5" /></svg
+            ><input
+              id="search"
+              placeholder="Search endpoints"
+              aria-label="Find an endpoint"
+            /><kbd>/</kbd>
+          </div>
+          <div class="list-heading">Endpoints <span>METHOD / PATH</span></div>
+          <div id="endpoint-list"></div>
+          <button class="add-endpoint" id="add-endpoint">
+            + <span>Add endpoint</span>
+          </button>
+        </div>
+        <div class="editor-panel" id="editor"></div>
+      </section>
+      <section id="activity-view" class="activity-panel" hidden>
+        <div class="activity-heading">
+          <h2>Incoming requests</h2>
+          <span>Latest 100 · refreshes automatically</span>
+        </div>
+        <div id="activity-list"></div>
+      </section>
+      <footer>
+        <span>Workspace saved on this machine</span><span>berAPI v1.0.0</span>
+      </footer>
+    </main>
+    <div id="toast" role="status"></div>
+    <dialog id="confirm-dialog">
+      <h2>Discard unsaved changes?</h2>
+      <p>Your saved endpoint will stay as it is.</p>
+      <div class="dialog-actions">
+        <button class="button" id="keep-editing">Keep editing</button
+        ><button class="button primary" id="discard-changes">
+          Discard changes
+        </button>
+      </div>
+    </dialog>
+  </body>
+</html>

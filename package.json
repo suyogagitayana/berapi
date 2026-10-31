@@ -1,0 +1,14 @@
+{
+  "name": "berapi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A friendly local mock API workspace",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
